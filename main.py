@@ -1,5 +1,6 @@
 from DataStructures import Stack, Queue, LinkedList, Tree
 from Algorithms import Algorithms
+import time
 
 # To easily interact with the data structures
 class Display:
@@ -64,6 +65,7 @@ class Display:
 				self.main()
 
 
+	# Stack
 	def DS_stack(self):
 		try:
 			length = int(input("Enter the length of your Stack: "))
@@ -110,6 +112,7 @@ class Display:
 				input("Press [Enter] to continue...")
 				self.DS_main()
 
+	# Queue
 	def DS_queue(self):
 		try:
 			length = int(input("Enter the length of your Queue: "))
@@ -156,6 +159,7 @@ class Display:
 				input("Press [Enter] to continue...")
 				self.DS_main()
 
+	# LinkedList
 	def DS_linkedlist(self):
 		try:
 			head = int(input("Enter the Head of your Linked List: "))
@@ -214,6 +218,7 @@ class Display:
 				input("Press [Enter] to continue...")
 				self.DS_main()
 
+	# Binary Search Tree
 	def DS_BST(self):
 		
 		bst = Tree()
@@ -258,18 +263,37 @@ class Display:
 	def Algo_main(self):
 		while True:
 			# Display the available data structures
-			print("\nAlgorithms \n\n Select an Algorithm: \n\n 1. Bubble Sort\n 2. Insertion Sort\n 3. Merge Sort\n 4. Quick Sort\n 6. Exit\n")
+			print("\nAlgorithms \n\n Select an Algorithm: \n\n 1. Bubble Sort\n 2. Insertion Sort\n 3. Merge Sort\n 4. Quick Sort\n 5. Back\n 6. Exit\n")
 
 			try:
 				selectedNumber = int(input("Select a number: "))
 			except:
 				print("\nPlease enter a valid input\n")
 				input("Press [Enter] to continue...")
-				self.DS_main()
+				self.Algo_main()
 
+			# To exit application immediately before asking the list of numbers
+			if selectedNumber == 6:
+				exit()
 
+			# Ask for a list of numbers to sort
+			input_listOfNumbers = input("Enter a list of numbers splitted by ',' Ex. 1,3,4 with no spaces \n\n Enter here: ")
+			try:
+				listOfNumbers = input_listOfNumbers.split(",")
+			except:
+				print("Wrong Format")
+				input("Press [Enter] to continue...")
+				self.Algo_main()
+
+			# Bubble Sort
 			if selectedNumber == 1:
-				break
+				start = time.time()
+				sortedList = Algorithms.bubbleSort(listOfNumbers)
+				result = time.time() - start
+
+				print(f"Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
+				
 
 			elif selectedNumber == 2:
 				break
@@ -280,8 +304,9 @@ class Display:
 			elif selectedNumber == 4:
 				break
 
-			elif selectedNumber == 6:
-				exit()
+			elif selectedNumber == 5:
+				self.main()
+				break
 
 
 

@@ -1,9 +1,11 @@
 
 class Algorithms:
-	def bubbleSort(list):
-		for x in range(0, len(list)):
-			for y in range(0, len(list)):
-				if list[x] < list[y]:
-					temp = list[x]
-					list[x] = list[y]
-					list[y] = temp
+	def bubbleSort(numbers):
+		for x in range(0, len(numbers)):
+			for y in range(0, len(numbers)):
+				if numbers[x] < numbers[y]:
+					temp = numbers[x]
+					numbers[x] = numbers[y]
+					numbers[y] = temp
+
+		return numbers
