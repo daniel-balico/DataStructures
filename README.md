@@ -12,4 +12,4 @@ _This is a simple project for me to learn and master the core fundamentals of **
  - Binary Search Tree
  
 > Algorithms
- - Soon
+ - Bubble Sort O(n^2)
