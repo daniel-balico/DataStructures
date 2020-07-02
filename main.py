@@ -263,7 +263,7 @@ class Display:
 	def Algo_main(self):
 		while True:
 			# Display the available data structures
-			print("\nAlgorithms \n\n Select an Algorithm: \n\n 1. Bubble Sort\n 2. Insertion Sort\n 3. Merge Sort\n 4. Quick Sort\n 5. Back\n 6. Exit\n")
+			print("\nAlgorithms \n\n Select an Algorithm: \n\n 1. Bubble Sort\n 2. Selection Sort\n 3. Merge Sort\n 4. Quick Sort\n 5. Insertion Sort\n 6. Tim Sort\n 7. Radix Sort\n 8. Back\n 9. Exit\n")
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -273,17 +273,16 @@ class Display:
 				self.Algo_main()
 
 			# To exit application immediately before asking the list of numbers
-			if selectedNumber == 6:
+			if selectedNumber == 8:
+				self.main()
+				break
+			elif selectedNumber == 9:
 				exit()
 
 			# Ask for a list of numbers to sort
 			input_listOfNumbers = input("Enter a list of numbers splitted by ',' Ex. 1,3,4 with no spaces \n\n Enter here: ")
-			try:
-				listOfNumbers = input_listOfNumbers.split(",")
-			except:
-				print("Wrong Format")
-				input("Press [Enter] to continue...")
-				self.Algo_main()
+			
+			listOfNumbers = input_listOfNumbers.split(",")
 
 			# Bubble Sort
 			if selectedNumber == 1:
@@ -296,17 +295,59 @@ class Display:
 				
 
 			elif selectedNumber == 2:
-				break
+				start = time.time()
+				sortedList = Algorithms.selectionSort(listOfNumbers)
+				result = time.time() - start
+
+				print(f"Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 3:
-				break
+				start = time.time()
+				sortedList = Algorithms.mergeSort(listOfNumbers)
+				result = time.time() - start
+
+				print(f"Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 4:
-				break
+				start = time.time()
+				sortedList = Algorithms.quickSort(listOfNumbers, 0, (len(listOfNumbers)-1))
+				result = time.time() - start
+
+				print(f"Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 5:
-				self.main()
-				break
+				start = time.time()
+				sortedList = Algorithms.insertionSort(listOfNumbers)
+				result = time.time() - start
+
+				print(f"Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 6:
+				start = time.time()
+				sortedList = listOfNumbers.sort()
+				result = time.time() - start
+
+				print(f"Did you know that python's built in sorting algorithm is Tim Sort? \n\n Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 7:
+				try:
+					listOfNumbers = [int(i) for i in listOfNumbers]
+				except:
+					print("Radix Sort Can Only Contain Numbers!")
+					input("Press [Enter] to continue...")
+					self.Algo_main()
+
+				start = time.time()
+				sortedList = Algorithms.radixSort(list(listOfNumbers))
+				result = time.time() - start
+
+				print(f"Numbers are now sorted:\n\n {sortedList} \n\n Execution time = {result}")
+				input("Press [Enter] to continue...")
 
 
 

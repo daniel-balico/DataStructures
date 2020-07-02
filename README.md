@@ -13,3 +13,10 @@ _This is a simple project for me to learn and master the core fundamentals of **
  
 > Algorithms
  - Bubble Sort O(n^2)
+ - Selection Sort O(n^2)
+ - Insertion Sort O(n^2)
+ - Merge Sort O(n log n)
+ - Quick Sort O(n log n)
+ - Tim Sort O(n log n)
+ - Radix Sort O()
+ - log l base b ( O(n + b) )
