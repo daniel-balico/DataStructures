@@ -4,14 +4,14 @@ _This is a simple project for me to learn and master the core fundamentals of **
 
 **The recent version of the code contains the following:**
 
-> Data Structures
+### Data Structures
 
  - Static Stack
  - Static Queue
  - Singly Linked List
  - Binary Search Tree
  
-> Algorithms
+### Algorithms
  - Bubble Sort O(n^2)
  - Selection Sort O(n^2)
  - Insertion Sort O(n^2)
@@ -19,3 +19,5 @@ _This is a simple project for me to learn and master the core fundamentals of **
  - Quick Sort O(n log n)
  - Tim Sort O(n log n)
  - Radix Sort log l base b ( O(n + b) )
+
+
