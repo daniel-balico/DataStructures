@@ -18,5 +18,4 @@ _This is a simple project for me to learn and master the core fundamentals of **
  - Merge Sort O(n log n)
  - Quick Sort O(n log n)
  - Tim Sort O(n log n)
- - Radix Sort O()
- - log l base b ( O(n + b) )
+ - Radix Sort log l base b ( O(n + b) )
