@@ -20,4 +20,7 @@ _This is a simple project for me to learn and master the core fundamentals of **
  - Tim Sort O(n log n)
  - Radix Sort log l base b ( O(n + b) )
 
+### How to run?
+> Open CMD/Terminal and type "main.py"
+
 
