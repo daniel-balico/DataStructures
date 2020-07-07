@@ -22,4 +22,4 @@ _This is a simple project for me to learn and master the core fundamentals of **
 ### How to run?
 > Open CMD/Terminal and type "main.py"
 
-
+_I've also learned about **Unit Testing** which is very important in every projects to validate that the program/software behaves as designed_
