@@ -8,6 +8,7 @@ _This is a simple project for me to learn and master the core fundamentals of **
  - Static Stack
  - Static Queue
  - Singly Linked List
+ - Circular Doubly Linked List
  - Binary Search Tree
  
 ### Algorithms
