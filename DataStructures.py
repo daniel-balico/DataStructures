@@ -54,7 +54,7 @@ class Stack:
 
 	# Return the number of elements in the stack
 	def count(self):
-		return self.top - 1
+		return self.top + 1
 
 
 # [Circular Fixed Length Queue]
@@ -127,7 +127,7 @@ class Queue:
 		self.count = self.count - 1
 
 	# Return the number of elements in the queue
-	def count(self):
+	def countQueue(self):
 		return self.count
 
 
@@ -145,7 +145,7 @@ class LinkedList:
 	def __init__(self, value):
 		self.head = LLNODE(value)
 		self.tail = self.head
-		self.length = 0
+		self.length = 1
 
 	# Appending/Adding new Nodes to the end of the list
 	def append(self, value):
@@ -153,7 +153,7 @@ class LinkedList:
 		
 		self.tail.next = newNode
 		self.tail = newNode
-		self.length = self.length + 1
+		self.length += 1
 
 	# Prepending/Adding new node to the start of the list
 	def prepend(self, value):
@@ -161,7 +161,7 @@ class LinkedList:
 		
 		newNode.next = self.head
 		self.head = newNode
-		self.length = self.length + 1
+		self.length += 1
 
 	# Displaying the nodes of the list
 	def display(self):
@@ -180,6 +180,7 @@ class LinkedList:
 
 		while currentIndex != index:
 			currentNode = currentNode.next
+			currentIndex += 1
 
 		return currentNode
 
@@ -191,10 +192,12 @@ class LinkedList:
 			self.append(value)
 		else:
 			previousNode = self.traverseToIndex(index-1)
-			newNode = Node(value)
+			newNode = LLNODE(value)
 
 			newNode.next = previousNode.next
 			previousNode.next = newNode
+
+		self.length += 1
 
 
 	# Removing a node to the list
@@ -209,7 +212,96 @@ class LinkedList:
 
 	# Returning the length of the list
 	def count(self):
-		return self.length+1
+		return self.length
+
+
+# [Circular Doubly Linked List]
+
+# DLL Node
+class DLL_Node:
+	def __init__(self, value):
+		self.value = value
+		self.next = None
+		self.previous = None
+
+# Doubly Linked List Object
+class DoublyLinkedList:
+	def __init__(self, value):
+		self.head = DLL_Node(value)
+		self.tail = self.head
+		self.length = 1
+
+	def append(self, value):
+		newNode = DLL_Node(value)
+
+		self.tail.next = newNode
+		newNode.previous = self.tail
+		self.tail = newNode
+		self.tail.next = self.head
+
+		self.length += 1
+
+	def prepend(self, value):
+		newNode = DLL_Node(value)
+
+		newNode.next = self.head
+		self.head.previous = newNode
+
+		self.head = newNode
+		
+		self.length += 1
+
+	def display(self):
+		currentNode = self.head
+
+		while currentNode != self.tail:
+			print(currentNode.value, end="-->")
+			currentNode = currentNode.next
+
+		print(currentNode.value, end="-->")
+		print("")
+
+
+	def traverseToIndex(self, index):
+		currentNode = self.head
+		currentIndex = 0
+
+		while currentIndex != index:
+			currentNode = currentNode.next
+			currentIndex += 1
+
+		return currentNode
+
+	def insert(self, index, value):
+		if index == 0:
+			self.prepend(value)
+		elif index == self.length:
+			self.append(value)
+		else:
+			previousNode = self.traverseToIndex(index-1)
+			newNode = DLL_Node(value)
+
+			newNode.next = previousNode.next
+			previousNode.next.previous = newNode
+			previousNode.next = newNode
+			newNode.previous = previousNode
+
+		self.length += 1
+
+	# Removing a node to the list
+	def remove(self, item):
+		currentNode = self.head
+
+		while currentNode.next.value != item:
+			currentNode = currentNode.next
+
+		currentNode.next = currentNode.next.next
+		self.length = self.length - 1
+
+	# Returning the length of the list
+	def count(self):
+		return self.length
+
 
 # [Binary Search Tree]
 

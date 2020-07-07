@@ -1,4 +1,4 @@
-from DataStructures import Stack, Queue, LinkedList, Tree
+from DataStructures import Stack, Queue, LinkedList, DoublyLinkedList, Tree
 from Algorithms import Algorithms
 import time
 
@@ -7,7 +7,7 @@ class Display:
 	def main(self):
 		while True:
 			# Display the available data structures
-			print("\n DATA STRUCTURES AND ALGORITHMS \n\n Select a number: \n\n 1. Data Structures\n 2. Algorithms\n 3. Exit\n")
+			print("\n [DATA STRUCTURES AND ALGORITHMS] \n\n Select a number: \n\n 1. Data Structures\n 2. Algorithms\n 3. Exit\n")
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -35,7 +35,7 @@ class Display:
 	def DS_main(self):
 		while True:
 			# Display the available data structures
-			print("\n DATA STRUCTURES \n\n Select a Data Structure: \n\n 1. Stack\n 2. Queue\n 3. Linked List\n 4. Binary Search Tree\n 6. Back\n")
+			print("\n [DATA STRUCTURES] \n\n Select a Data Structure: \n\n 1. Stack\n 2. Queue\n 3. Linked List\n 4. Doubly Linked List\n 5. Binary Search Tree\n 6. Back\n")
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -58,6 +58,10 @@ class Display:
 				break
 
 			elif selectedNumber == 4:
+				self.DS_DoublyLinkedList()
+				break
+
+			elif selectedNumber == 5:
 				self.DS_BST()
 				break
 
@@ -76,7 +80,7 @@ class Display:
 		stack = Stack(length)
 
 		while True:
-			print('\n STACK OPERATIONS \n\n 1. Push\n 2. Pop\n 3. Display\n 4. Count\n 5. Back\n')
+			print('\n [STACK OPERATIONS] \n\n 1. Push\n 2. Pop\n 3. Display\n 4. Count\n 5. Back\n')
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -123,7 +127,7 @@ class Display:
 		queue = Queue(length)
 
 		while True:
-			print('\n QUEUE OPERATIONS \n\n 1. Enqueue\n 2. Dequeue\n 3. Display\n 4. Count\n 5. Back\n')
+			print('\n [QUEUE OPERATIONS] \n\n 1. Enqueue\n 2. Dequeue\n 3. Display\n 4. Count\n 5. Back\n')
 			
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -148,7 +152,7 @@ class Display:
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 4:
-				queue.count()
+				queue.countQueue()
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 5:
@@ -170,7 +174,7 @@ class Display:
 		linkedlist = LinkedList(head)
 
 		while True:
-			print('\n LINKED LIST OPERATIONS \n\n 1. Append\n 2. Prepend\n 3. Display\n 4. Count\n 5. Insert\n 6. Remove\n 7. Back\n')
+			print('\n [LINKED LIST OPERATIONS] \n\n 1. Append\n 2. Prepend\n 3. Display\n 4. Count\n 5. Insert\n 6. Remove\n 7. Back\n')
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -218,13 +222,74 @@ class Display:
 				input("Press [Enter] to continue...")
 				self.DS_main()
 
+	# Doubly Linked List
+	def DS_DoublyLinkedList(self):
+		try:
+			head = int(input(" Enter the Head of your Doubly Linked List: "))
+		except:
+			return self.DS_queue()
+
+		# Linked List instantiation with the given length
+		linkedlist = DoublyLinkedList(head)
+
+		while True:
+			print('\n [DOUBLY LINKED LIST OPERATIONS] \n\n 1. Append\n 2. Prepend\n 3. Display\n 4. Count\n 5. Insert\n 6. Remove\n 7. Back\n')
+
+			try:
+				selectedNumber = int(input("Select a number: "))
+			except:
+				print("\nPlease enter a valid input\n")
+				input("Press [Enter] to continue...")
+				self.DS_DoublyLinkedList()
+
+			if selectedNumber == 1:
+				value = int(input("Enter the value that you want to append: "))
+				linkedlist.append(value)
+				print("Success!")
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 2:
+				value = int(input("Enter the value that you want to prepend: "))
+				linkedlist.prepend(value)
+				print("Success!")
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 3:
+				linkedlist.display()
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 4:
+				linkedlist.count()
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 5:
+				linkedlist.insert()
+				print('Insert Complete')
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 6:
+				value = int(input("Enter the value that you want to remove: "))
+				linkedlist.remove(value)
+				print("Success!")
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 7:
+				self.DS_main()
+
+			else:
+				print("The number you entered is not in the choices... Going back to the main screen instead...")
+				input("Press [Enter] to continue...")
+				self.DS_main()
+
+
+
 	# Binary Search Tree
 	def DS_BST(self):
 		
 		bst = Tree()
 
 		while True:
-			print('\n BST OPERATIONS \n\n 1. Insert\n 2. Traverse: PreOrder\n 3. Traverse: InOrder\n 4. Traverse: PostOrder\n 5. Back\n')
+			print('\n [BST OPERATIONS] \n\n 1. Insert\n 2. Traverse: PreOrder\n 3. Traverse: InOrder\n 4. Traverse: PostOrder\n 5. Back\n')
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -235,20 +300,20 @@ class Display:
 
 			if selectedNumber == 1:
 				value = int(input("Enter the value that you want to insert: "))
-				tree.insert(value)
+				bst.insert(value)
 				print("Insert Complete")
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 2:
-				tree.preOrder()
+				bst.preOrder()
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 3:
-				tree.inOrder()
+				bst.inOrder()
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 4:
-				tree.postOrder()
+				bst.postOrder()
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 5:
@@ -264,7 +329,7 @@ class Display:
 		algo = Algorithms()
 		while True:
 			# Display the available data structures
-			print("\n ALGORITHMS \n\n Select an Algorithm: \n\n 1. Bubble Sort\n 2. Selection Sort\n 3. Merge Sort\n 4. Quick Sort\n 5. Insertion Sort\n 6. Tim Sort\n 7. Radix Sort\n 8. Back\n 9. Exit\n")
+			print("\n [ALGORITHMS] \n\n Select an Algorithm: \n\n 1. Bubble Sort\n 2. Selection Sort\n 3. Merge Sort\n 4. Quick Sort\n 5. Insertion Sort\n 6. Tim Sort\n 7. Radix Sort\n 8. Back\n 9. Exit\n")
 
 			try:
 				selectedNumber = int(input("Select a number: "))
