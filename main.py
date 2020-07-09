@@ -27,9 +27,6 @@ class Display:
 			else:
 				exit()
 
-	# Call the main method at instantiation to be called again later
-	def __init__(self):
-		self.main()
 
 	# Data Structures ------------------------------------------------------
 	def DS_main(self):
@@ -174,7 +171,7 @@ class Display:
 		linkedlist = LinkedList(head)
 
 		while True:
-			print('\n [LINKED LIST OPERATIONS] \n\n 1. Append\n 2. Prepend\n 3. Display\n 4. Count\n 5. Insert\n 6. Remove\n 7. Back\n')
+			print('\n [LINKED LIST OPERATIONS] \n\n 1. Append\n 2. Prepend\n 3. Display\n 4. Count\n 5. Insert\n 6. Remove\n 7. Reverse\n 8. Back\n')
 
 			try:
 				selectedNumber = int(input("Select a number: "))
@@ -215,6 +212,11 @@ class Display:
 				input("Press [Enter] to continue...")
 
 			elif selectedNumber == 7:
+				linkedlist.reverse()
+				print("Success!")
+				input("Press [Enter] to continue...")
+
+			elif selectedNumber == 8:
 				self.DS_main()
 
 			else:
@@ -422,3 +424,4 @@ class Display:
 
 # Instantiate the display object
 display = Display()
+display.main()

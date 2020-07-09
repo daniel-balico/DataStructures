@@ -178,9 +178,18 @@ class TestDataStructures(unittest.TestCase):
 		sll.display()
 		self.assertEqual(mock_stdout.getvalue(), '4-->10-->5-->6-->\n')
 
+		# reset stdout
+		mock_stdout.seek(0)
+		mock_stdout.truncate(0)
+
 		# Check if remove() is working properly
 		sll.remove(5)
 		self.assertEqual(sll.head.next.value, 10)
+
+		# Test reverse()
+		sll.reverse()
+		sll.display()
+		self.assertEqual(mock_stdout.getvalue(), '6-->10-->4-->\n')
 
 		# Test count() again
 		self.assertEqual(sll.count(), 3)
@@ -285,6 +294,9 @@ class TestDataStructures(unittest.TestCase):
 		# Check is postOrder Traversal is working properly
 		bst.postOrder()
 		self.assertEqual(mock_stdout.getvalue(), '8 9 12 11 10 ')
+
+
+
 
 
 if __name__ == '__main__':

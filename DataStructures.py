@@ -210,6 +210,23 @@ class LinkedList:
 		currentNode.next = currentNode.next.next
 		self.length = self.length - 1
 
+	# Reverse a linked list
+	def reverse(self):
+		currentNode = self.head
+		prev = None
+
+		while currentNode:
+			nextValue = currentNode.next
+			currentNode.next = prev
+			prev = currentNode
+			currentNode = nextValue
+
+		head = self.head
+		tail = self.tail
+		
+		self.head = tail
+		self.tail = head 
+
 	# Returning the length of the list
 	def count(self):
 		return self.length
