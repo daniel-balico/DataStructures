@@ -1,6 +1,6 @@
 # Data Structures and Algorithms
 
-_This is a simple project for me to learn and master the core fundamentals of **Data Structures and Algorithms**_
+_This is a simple project of me to learn and master the core fundamentals of **Data Structures and Algorithms**_
 
 **The recent version of the code contains the following:**
 
